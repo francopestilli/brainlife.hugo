@@ -6,13 +6,40 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/pixi.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_DdEi4sKJWYq6zIxOtJ381CtzsB8hh5o&callback=initMap" type="text/javascript"></script>
+<script>
+var map;
+function initMap() {
+    fetch('assets/institutions.json').then(res=>res.json()).then(insts=>{
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 20, lng: 10 },
+            zoom: 2 
+        });
+        for(let name in insts) {
+            if(insts[name].lat && insts[name].lng) {
+                new google.maps.Marker({
+                    position: insts[name],
+                    map: map,
+                    title: name,
+                    //label: 'hi',
+                });
+            }
+        }
+    });
+}
+</script>
 <script>
 	let banner = document.getElementById("banner");
     function onscroll() {
+        // window.alert("Scrolling");
         var y = window.scrollY;
+        console.log(y);
         var mainContent = document.getElementById("main-content");
         
         var bannerClasses = ['page-header'];
+        console.log(bannerClasses);
         
         if (y >= 150) bannerClasses.push('affix');
         if (mainContent.getBoundingClientRect().top <= 0) bannerClasses.push('overscrolled');

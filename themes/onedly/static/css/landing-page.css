@@ -207,3 +207,86 @@ p.copyright {
 .github-btn {
     margin-top: 10px;
 }
+div.online {
+    width: 150px;
+    height: 100px;
+    display: inline-block;
+    position: relative;
+    margin: 0 5px;
+    font-size: 90%;
+    }
+    div.online::after {
+    content: "";
+    background: url(images/online.png);
+    background-size: 150px 100px;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    top: -5px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    }
+    .headlink a {
+    text-decoration: none;
+    color: inherit;
+    }
+    .headlink img {
+    width: 75%;
+    transition: transform .5s, top .5s; /* Animation */
+    position: relative;
+    top: 0;
+    }
+    .headlink:hover img {
+    transform: scale(1.5); 
+    top: -20px;
+    }
+    .clickable-table td {
+    cursor: pointer;
+    }
+    .clickable-table tr h3,
+    .clickable-table tr  {
+    transition: color 0.5s;
+    }
+    .clickable-table tr:hover {
+        color: #333;
+    }
+    td .secondary {
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+    transform: scale(0.5);
+    }
+    td:hover .secondary {
+    opacity: 1;
+    transform: scale(1); 
+    transform: translate(30px, 20px); 
+    }
+    
+    .centerimage {
+        position: absolute; 
+        top: -80px;  
+        background-color: #ddd; 
+        padding: 25px 20px; 
+        border-radius: 50%; 
+        width: 200px; 
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .floatleft {
+        position: relative;
+    }
+    @media only screen and (max-width: 500px) {
+        .floatleft {
+            width: 100%;
+        }
+    }
+    
+    @media only screen and (min-width: 900px) {
+        .floatleft {
+            float: left;
+            left: -50px;
+            margin-bottom: 70px;
+        }
+    }
