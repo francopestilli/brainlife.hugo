@@ -61,6 +61,21 @@ strong {
 dfn {
   font-style: italic;
 }
+.gallery {
+  
+}
+
+.gallery ul {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    margin: 32px 0;
+}
+
+.gallery li {
+    margin: 0 10px;
+    flex-basis: calc(50% - 20px);
+}
 h1 {
   margin: .67em 0;
   font-size: 2em;
