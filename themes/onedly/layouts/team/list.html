@@ -2,65 +2,66 @@
 <section class="app-header" style="background-image: url('/images/integration-1777537_1920.jpg')">
   <br>
   <div class="main-content">
-    
+
     <h1>Meet The Team</h1>
-    
+
     <br>
   </div>
 </section>
 
 <section class="main-content">
-      <p>
-brainlife.io is developed by an open community of scientists and a group of dedicated trainees and professional software engineers.
-</p>
-<p>
-  <img src="/images/team.jpg" width="100%" class="team"/>
-</p>
+  <p>
+    brainlife.io is developed by an open community of scientists and a group of dedicated trainees and professional
+    software engineers.
+  </p>
+  <p>
+    <img src="/images/team.jpg" width="100%" class="team" />
+  </p>
 
-<div class="colorback" style="background-color: #2693ff">
-  <div class="container">
-    <div class="row">
-  <br>
-  <center>
-      <h1>Project Members</h1>
-      <br>
-      <p>The following individuals are actively contributing to the brainlife.io project.</p>
-  </center>
-  <br>
-  <table class="layout-table">
-    {{ range .Pages }}
-    {{ if in .Params.tags "active" }}
-    <tr>
+  <div class="colorback" style="background-color: #2693ff">
+    <div class="container">
+      <div class="row">
+        <br>
+        <center>
+          <h1>Project Members</h1>
+          <br>
+          <p>The following individuals are actively contributing to the brainlife.io project.</p>
+        </center>
+        <br>
+        <table class="layout-table">
+          {{ range .Pages }}
+          {{ if in .Params.tags "active" }}
+          <tr>
             <td width="40%" class="contact">
-                <img src="{{.Params.image}}" style = "width: 200px;height:200px"><br>
-                <a >{{.Title}}</a><br>
-                <span class="title">{{.Params.position}}</span>
+              <img src="{{.Params.image}}" style="width: 200px;height:200px"><br>
+              <a>{{.Title}}</a><br>
+              <span class="title">{{.Params.position}}</span>
             </td>
             <td width="60%">
-             <p> {{.Params.description}}      </p>
+              <p> {{.Params.description}} </p>
             </td>
-    </tr>
-              {{ end }}
-              {{ end }}
+          </tr>
+          {{ end }}
+          {{ end }}
 
         </table>
-        </div>
+      </div>
+    </div>
   </div>
-</div>
   <div style="margin-top: 6rem; ">
     <h1>
-        <center>
-            <p style="font-size: 150%;">
-                <i class="fas fa-key"></i>
-            </p>
-            Co-PIs 
-        </center>
+      <center>
+        <p style="font-size: 150%;">
+          <i class="fas fa-key"></i>
+        </p>
+        Co-PIs
+      </center>
     </h1>
-	<br>
-  <br>
-  <div class="container">
-    <div class="row row-cols-1 layout-table">
-      <!-- {{ range .Pages }}
+    <br>
+    <br>
+    <div class="container">
+      <div class="row row-cols-1 layout-table">
+        <!-- {{ range .Pages }}
       {{ if in .Params.tags "copi" }}
         <div class="col">
             <h3><b><a >{{.Title}}</a></b></h3>
@@ -71,35 +72,38 @@ brainlife.io is developed by an open community of scientists and a group of dedi
     {{end}}    
     {{end}} -->
 
-    <div class="gallery">
-      <ul style=" display: flex;
+        <div class="gallery">
+          <ul style=" display: flex;
       flex-flow: row wrap;
       list-style: none;
       margin: 32px 0;">
-        {{range .Pages}}
-          {{if in .Params.tags "copi"}}
-          <li style=" margin: 0 10px;
-          flex-basis: calc(50% - 20px);"><h3><b>{{.Title}}</b></h3><p> {{.Params.position}}</p></li>
-          {{end}}
-        {{end}}  
-      </ul>
+            {{range .Pages}}
+            {{if in .Params.tags "copi"}}
+            <li style=" margin: 0 10px;
+          flex-basis: calc(50% - 20px);">
+              <h3><b>{{.Title}}</b></h3>
+              <p> {{.Params.position}}</p>
+            </li>
+            {{end}}
+            {{end}}
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>  
-</div>
 
-  <div class="colorback" style="background-color: #159957">
-    <br>
-    <br>
-    <br>
-    <center>
+    <div class="colorback" style="background-color: #159957">
+      <br>
+      <br>
+      <br>
+      <center>
         <h1>Collaborators</h1>
         <br>
         <p>Many thanks to all brainlife.io collaborators!</p>
-    </center>
-    <br>
-    <!-- <div class="container">
+      </center>
+      <br>
+      <!-- <div class="container">
       <div class="row table"> -->
-        <!-- {{ range .Pages }}
+      <!-- {{ range .Pages }}
         {{ if in .Params.tags "collaborators" }}
         <div class="col-md-4 col-sm-6 col-xs-12 contact">
           <img src="{{.Params.image}}"><br>
@@ -110,27 +114,27 @@ brainlife.io is developed by an open community of scientists and a group of dedi
         {{ end }}
         {{ end }}
      -->
-           
+
       <!-- </div>
     </div> -->
-    <div class="gallery">
-      <ul style=" display: flex;
+      <div class="gallery">
+        <ul style=" display: flex;
       flex-flow: row wrap;
       list-style: none;
       margin: 32px 0;">
-        {{range .Pages}}
+          {{range .Pages}}
           {{if in .Params.tags "collaborators"}}
           <li style=" margin: 0 10px;
           flex-basis: calc(33% - 20px);" class="contact">
-          <img src = '{{.Params.image}}' ><br>
-          <a>{{.Title}}</a><br>
-          <span class="title"> {{.Params.position}}</span><br>
-          <span class="location">{{.Params.location}}</span><br>
-        </li>
+            <img src='{{.Params.image}}'><br>
+            <a>{{.Title}}</a><br>
+            <span class="title"> {{.Params.position}}</span><br>
+            <span class="location">{{.Params.location}}</span><br>
+          </li>
           {{end}}
-        {{end}}  
-      </ul>
-    </div>
+          {{end}}
+        </ul>
+      </div>
     </div>
 
     <div>
@@ -138,28 +142,26 @@ brainlife.io is developed by an open community of scientists and a group of dedi
       <br>
       <br>
       <center>
-          <h1>Former Members</h1>
+        <h1>Former Members</h1>
       </center>
       <br>
       <table class="layout-table">
         {{ range .Pages }}
         {{ if in .Params.tags "former" }}
         <tr>
-                <td width="40%" class="contact">
-                    <img src="{{.Params.image}}" style = "width: 200px;height:200px"><br>
-                    <a >{{.Title}}</a><br>
-                    <span class="title">{{.Params.position}}</span>
-                </td>
-                <td width="60%">
-                 <p> {{.Params.description}}      </p>
-                </td>
+          <td width="40%" class="contact">
+            <img src="{{.Params.image}}" style="width: 200px;height:200px"><br>
+            <a>{{.Title}}</a><br>
+            <span class="title">{{.Params.position}}</span>
+          </td>
+          <td width="60%">
+            <p> {{.Params.description}} </p>
+          </td>
         </tr>
-                  {{ end }}
-                  {{ end }}
-    
-            </table>
-    </div>
-  
-  {{end}}
+        {{ end }}
+        {{ end }}
 
- 
+      </table>
+    </div>
+
+    {{end}}
