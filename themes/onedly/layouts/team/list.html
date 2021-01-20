@@ -47,7 +47,7 @@ brainlife.io is developed by an open community of scientists and a group of dedi
         </div>
   </div>
 </div>
-  <div style="margin-top: 6rem; margin-bottom: 3rem;">
+  <div style="margin-top: 6rem; ">
     <h1>
         <center>
             <p style="font-size: 150%;">
@@ -79,12 +79,13 @@ brainlife.io is developed by an open community of scientists and a group of dedi
         {{range .Pages}}
           {{if in .Params.tags "copi"}}
           <li style=" margin: 0 10px;
-          flex-basis: calc(50% - 20px);"><h3>{{.Title}}</h3><p> {{.Params.position}}</p></li>
+          flex-basis: calc(50% - 20px);"><h3><b>{{.Title}}</b></h3><p> {{.Params.position}}</p></li>
           {{end}}
         {{end}}  
       </ul>
     </div>
   </div>  
+</div>
 
   <div class="colorback" style="background-color: #159957">
     <br>
@@ -120,31 +121,45 @@ brainlife.io is developed by an open community of scientists and a group of dedi
         {{range .Pages}}
           {{if in .Params.tags "collaborators"}}
           <li style=" margin: 0 10px;
-          flex-basis: calc(33% - 20px);" class="contact"><img src = '{{.Params.image}}' ><h3>{{.Title}}</h3><p> {{.Params.position}}</p></li>
+          flex-basis: calc(33% - 20px);" class="contact">
+          <img src = '{{.Params.image}}' ><br>
+          <a>{{.Title}}</a><br>
+          <span class="title"> {{.Params.position}}</span><br>
+          <span class="location">{{.Params.location}}</span><br>
+        </li>
           {{end}}
         {{end}}  
       </ul>
     </div>
-  </div>
-{{ $dateFormat := default "Jan 2" (index .Site.Params "date_format") }}
-{{ $.Scratch.Set "lastYear" ""}}
-<div class="container">
-  <h1 class="text-center">{{ .Type | humanize}}</h1>
-  {{ range .Pages }}
-    {{ $year := .Date.Year }}
-    {{ $lastYear := $.Scratch.Get "lastYear"}}
-    <div class="row mt-2">
-      <div class="d-none d-sm-block col-sm-2 mt-auto offset-sm-2 text-right">
-        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-      </div>
-      <div class="col">
-        {{ if ne $year $lastYear }}
-          <p class="text-muted mt-5">{{ $year }}</p>
-          {{ $.Scratch.Set "lastYear" $year }}
-        {{ end }}
-        <a class="text-body" href="{{ .URL | relURL }}">{{ if .Draft }}DRAFT: {{end}}{{ .Title | markdownify }}</a>
-      </div>
     </div>
-  {{ end }}
-</div>
-{{ end }}
+
+    <div>
+      <br>
+      <br>
+      <br>
+      <center>
+          <h1>Former Members</h1>
+      </center>
+      <br>
+      <table class="layout-table">
+        {{ range .Pages }}
+        {{ if in .Params.tags "former" }}
+        <tr>
+                <td width="40%" class="contact">
+                    <img src="{{.Params.image}}" style = "width: 200px;height:200px"><br>
+                    <a >{{.Title}}</a><br>
+                    <span class="title">{{.Params.position}}</span>
+                </td>
+                <td width="60%">
+                 <p> {{.Params.description}}      </p>
+                </td>
+        </tr>
+                  {{ end }}
+                  {{ end }}
+    
+            </table>
+    </div>
+  
+  {{end}}
+
+ 
