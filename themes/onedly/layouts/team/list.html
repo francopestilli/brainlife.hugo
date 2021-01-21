@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  <div style="margin-top: 6rem; ">
+  <!-- <div style="margin-top: 6rem; ">
     <h1>
       <center>
         <p style="font-size: 150%;">
@@ -60,7 +60,7 @@
     <br>
     <br>
     <div class="container">
-      <div class="row row-cols-1 layout-table">
+      <div class="row row-cols-1 layout-table"> -->
         <!-- {{ range .Pages }}
       {{ if in .Params.tags "copi" }}
         <div class="col">
@@ -72,7 +72,7 @@
     {{end}}    
     {{end}} -->
 
-        <div class="gallery">
+        <!-- <div class="gallery">
           <ul style=" display: flex;
       flex-flow: row wrap;
       list-style: none;
@@ -89,7 +89,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="colorback" style="background-color: #159957">
       <br>
@@ -142,12 +142,12 @@
       <br>
       <br>
       <center>
-        <h1>Former Members</h1>
+        <h1>Alumni</h1>
       </center>
       <br>
       <table class="layout-table">
         {{ range .Pages }}
-        {{ if in .Params.tags "former" }}
+        {{ if in .Params.tags "alumni" }}
         <tr>
           <td width="40%" class="contact">
             <img src="{{.Params.image}}" style="width: 200px;height:200px"><br>
