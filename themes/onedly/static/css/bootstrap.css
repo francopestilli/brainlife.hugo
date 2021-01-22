@@ -61,9 +61,11 @@ strong {
 dfn {
   font-style: italic;
 }
+/* }
+
 .gallery {
   
-}
+} */
 
 .gallery ul {
     display: flex;

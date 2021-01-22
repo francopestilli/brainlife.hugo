@@ -1,3 +1,9 @@
 [submodule "themes/onedly"]
 	path = themes/onedly
 	url = https://github.com/cdeck3r/OneDly-Theme.git
+[submodule "brainlife.hugo.theme"]
+	path = brainlife.hugo.theme
+	url = git@github.com:brainlife/brainlife.hugo.theme.git
+[submodule "themes/brainlife.hugo.theme"]
+	path = themes/brainlife.hugo.theme
+	url = git@github.com:brainlife/brainlife.hugo.theme.git
