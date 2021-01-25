@@ -1,10 +1,10 @@
 ---
-title: "MichaelHanke"
+title: "Michael Hanke"
 date: 2021-01-20T15:34:19Z
 draft: false
 tags : ['collaborators']
-position : 'Team Lead'
+position : 'Group Lead'
 image : '/images/avatar/michael.jpg'
-location : 'Northwestern University'
+location : 'Forschungszentrum Jülich'
 ---
 
