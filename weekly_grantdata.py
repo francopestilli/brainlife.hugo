@@ -13,7 +13,7 @@ def myfn():
     # print('written json response')
     pathlib.Path(filepath).write_bytes(nsf_response.content)
 sch = scheduler()
-sch.add_job(myfn, 'interval', seconds=5)
+sch.add_job(myfn, 'interval', seconds=604800)
 sch.start()
 
 # This code will be executed after the sceduler has started
