@@ -11,7 +11,7 @@ body {
 }
 
 html body {
-padding-top: 65px;
+padding-top: 0px;
 }
 
   a {
@@ -19,7 +19,9 @@ padding-top: 65px;
     text-decoration: none; }
     a:hover {
       text-decoration: underline; }
-  
+  .p {
+    margin : 0 !important;
+  }
   .btn {
     display: inline-block;
     margin-bottom: 1rem;
@@ -93,7 +95,7 @@ font-style: italic;
     @media screen and (min-width: 64em) {
       .main-content {
         max-width: 64rem;
-        padding: 2rem 6rem;
+        padding: 1em 6rem;
         margin: 0 auto;
         font-size: 1.0rem; } }
     @media screen and (min-width: 42em) and (max-width: 64em) {
@@ -352,7 +354,7 @@ z-index: 1;
 
 .main-content .colorback {
     margin: 0 -9999rem;
-    padding: 3.5rem 9999rem;
+    padding: 4em 9999rem;
     color: white;
 }
 .main-content .colorback.lightgrayback {
@@ -480,7 +482,7 @@ vertical-align: top; padding: 10px; border: none;
 }
 table.layout-table {
     border-collapse:separate; 
-    border-spacing: 0 2em;
+    /* border-spacing: 0 2em; */
 }
 .main-content .colorback .sponsor-header {
     position: relative;

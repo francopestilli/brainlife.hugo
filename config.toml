@@ -1,4 +1,4 @@
-baseurl = "https://example.com/"
+baseurl = "https://brainlife.io/"
 languageCode = "en-us"
 title = "brainlife"
 theme = "brainlife.hugo.theme"
