@@ -148,7 +148,7 @@ li.timeline-item::before {
     }
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
 
-    axios.get('http://api.nsf.gov/services/v1/awards.json?keyword="franco+pestilli"&printFields=startDate,expDate,id,title,awardee,agency,awardeeName,piFirstName,piLastName,coPDPI').then(response =>{
+    axios.get('http://129.114.17.179:8000/lab/assets/nsf.json').then(response =>{
     console.log("Hiii its nsf");
       console.log(response.data);
     console.log(response.data.response.award);
