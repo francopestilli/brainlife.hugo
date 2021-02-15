@@ -103,7 +103,15 @@ li.timeline-item::before {
       <div class="container">
         <div class="row">
           <ul class="timeline" id = "_awards">
-
+            {{ range .Pages }}
+            <li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date = "{{.Params.startdate}}">
+              <div class="timeline-arrow"></div>
+              <p><span class="blue-text">{{.Params.startdate}} </span></p>
+              <h2 class="h5">{{.Title}}</h2><p>{{.Params.pi}}</p>
+              <p class="journal bold"><br>
+              <span><a href='{{.Title}}'><span class="badge badge-pill badge-info"></a></span></p> 
+              <a href="{{.Params.url}}" class="btn btn-gray">Learn More</a></li>
+              {{ end }}
           </ul>
 
         </div>
@@ -138,11 +146,11 @@ li.timeline-item::before {
         return month + '/' + day + '/' + year;
       }
 
-    function generateAwards(startDate,endDate,pi,copi,title){
+    function generateAwards(startDate,endDate,pi,copi,title,url){
       var olddate = startDate
       const D = new Date(startDate);// {object Date}
       startDate = getFormattedDate(D);
-    content = '<li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date = "'+D+'""><div class="timeline-arrow"></div><p><span class="blue-text">'+startDate +'</span></p><h2 class="h5">'+title+'</h2><p>'+pi+' ,'+copi+'</p> <p class="journal bold"><br><span><a href='+title+'><span class="badge badge-pill badge-info">'+'</a></span></p></li>';
+    content = '<li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date = "'+D+'""><div class="timeline-arrow"></div><p><span class="blue-text">'+startDate +'</span></p><h2 class="h5">'+title+'</h2><p>'+pi+' ,'+copi+'</p> <p class="journal bold"><br><span><a href='+title+'><span class="badge badge-pill badge-info">'+'</a></span></p> <a href="'+url+'" class="btn btn-gray">Learn More</a></li>';
     document.getElementById('_awards').innerHTML += content;
     
     }
@@ -155,10 +163,11 @@ li.timeline-item::before {
     var outputs = response.data.response.award;
     for(i=0; i <= outputs.length;i++){
         var output = response.data.response.award[i];
+        var url = "https://www.nsf.gov/awardsearch/showAward?AWD_ID="+output.id ;
         if(output.coPDPI != undefined){
-            generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,output.coPDPI,output.title);
+            generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,output.coPDPI,output.title,url);
     }else{
-        generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,"",output.title);
+        generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,"",output.title,url);
 
     }
     }
@@ -171,11 +180,13 @@ axios.get('http://api.federalreporter.nih.gov/v1/Projects/search?query=piName%3A
     var outputs = response.data.items;
     for(i=0; i <= outputs.length;i++){
         var output = response.data.items[i];
+        var url = "https://reporter.nih.gov/project-details/"+output.nihApplId;
+        console.log(url);
         if(output.otherPis != undefined){
             
-            generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,output.otherPis,output.title);
+            generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,output.otherPis,output.title,url);
     }else{
-        generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,"",output.title);
+        generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,"",output.title,url);
 
     }
     }
