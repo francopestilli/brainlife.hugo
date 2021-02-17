@@ -1,7 +1,6 @@
 baseurl = "https://brainlife.io/"
 languageCode = "en-us"
 title = "brainlife"
-theme = "brainlife.hugo.theme"
 
 #
 # Personalization params
