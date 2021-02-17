@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>collaborators on brainlife</title>
+    <link>http://localhost:1313/tags/collaborators/</link>
+    <description>Recent content in collaborators on brainlife</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Jan 2021 15:39:05 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/collaborators/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shiloh</title>
+      <link>http://localhost:1313/team/shiloh/</link>
+      <pubDate>Wed, 20 Jan 2021 15:39:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/team/shiloh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cesar Caiafa</title>
+      <link>http://localhost:1313/team/cesar/</link>
+      <pubDate>Wed, 20 Jan 2021 15:34:19 +0000</pubDate>
+      
+      <guid>http://localhost:1313/team/cesar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Michael Hanke</title>
+      <link>http://localhost:1313/team/michaelhanke/</link>
+      <pubDate>Wed, 20 Jan 2021 15:34:19 +0000</pubDate>
+      
+      <guid>http://localhost:1313/team/michaelhanke/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paolo Avesani</title>
+      <link>http://localhost:1313/team/paolo/</link>
+      <pubDate>Wed, 20 Jan 2021 15:34:19 +0000</pubDate>
+      
+      <guid>http://localhost:1313/team/paolo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yaroslav O. Halchenko</title>
+      <link>http://localhost:1313/team/yaroslav/</link>
+      <pubDate>Wed, 20 Jan 2021 15:34:19 +0000</pubDate>
+      
+      <guid>http://localhost:1313/team/yaroslav/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

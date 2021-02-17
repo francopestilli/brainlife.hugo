@@ -103,15 +103,15 @@ li.timeline-item::before {
       <div class="container">
         <div class="row">
           <ul class="timeline" id = "_awards">
-            {{ range .Pages }}
-            <li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date = "{{.Params.startdate}}">
+            {{ range .Pages  }}
+            <li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date= "{{.Params.startDate}} ">
               <div class="timeline-arrow"></div>
-              <p><span class="blue-text">{{.Params.startdate}} </span></p>
-              <h2 class="h5">{{.Title}}</h2><p>{{.Params.pi}}</p>
+              <p><span class="blue-text date_check">{{.Params.startDate}} </span></p>
+              <h2 class="h5">{{.Title}}</h2><p>{{.Params.piFirstName}} {{.Params.piLastName}} {{if .Params.coPDPI}} , {{delimit .Params.coPDPI ", "}} {{ end }}</p>
               <p class="journal bold"><br>
               <span><a href='{{.Title}}'><span class="badge badge-pill badge-info"></a></span></p> 
-              <a href="{{.Params.url}}" class="btn btn-gray">Learn More</a></li>
-              {{ end }}
+              <a href="{{.Params.external_url}}" class="btn btn-gray">Learn More</a></li>
+              {{end}}
           </ul>
 
         </div>
@@ -150,48 +150,73 @@ li.timeline-item::before {
       var olddate = startDate
       const D = new Date(startDate);// {object Date}
       startDate = getFormattedDate(D);
+      console.log("formatttted "+D);
     content = '<li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date = "'+D+'""><div class="timeline-arrow"></div><p><span class="blue-text">'+startDate +'</span></p><h2 class="h5">'+title+'</h2><p>'+pi+' ,'+copi+'</p> <p class="journal bold"><br><span><a href='+title+'><span class="badge badge-pill badge-info">'+'</a></span></p> <a href="'+url+'" class="btn btn-gray">Learn More</a></li>';
     document.getElementById('_awards').innerHTML += content;
     
     }
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
 
-    axios.get('http://129.114.17.179:8000/lab/assets/nsf.json').then(response =>{
-    console.log("Hiii its nsf");
-      console.log(response.data);
-    console.log(response.data.response.award);
-    var outputs = response.data.response.award;
-    for(i=0; i <= outputs.length;i++){
-        var output = response.data.response.award[i];
-        var url = "https://www.nsf.gov/awardsearch/showAward?AWD_ID="+output.id ;
-        if(output.coPDPI != undefined){
-            generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,output.coPDPI,output.title,url);
-    }else{
-        generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,"",output.title,url);
+//     axios.get('http://129.114.17.179:8000/lab/assets/nsf.json').then(response =>{
+//     console.log("Hiii its nsf");
+//       console.log(response.data);
+//     console.log(response.data.response.award);
+//     var outputs = response.data.response.award;
+//     for(i=0; i <= outputs.length;i++){
+//         var output = response.data.response.award[i];
+//         var url = "https://www.nsf.gov/awardsearch/showAward?AWD_ID="+output.id ;
+//         if(output.coPDPI != undefined){
+//             generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,output.coPDPI,output.title,url);
+//     }else{
+//         generateAwards(output.startDate,output.expDate,output.piFirstName+' '+output.piLastName,"",output.title,url);
 
-    }
-    }
-});
+//     }
+//     }
+// });
 
-axios.get('http://api.federalreporter.nih.gov/v1/Projects/search?query=piName%3AFRANCO%20PESTILLI&offset=1&limit=100').then(response =>{
-  console.log("Hiii its nih");  
-  console.log(response);
-    // console.log(response.data.response.award);
-    var outputs = response.data.items;
-    for(i=0; i <= outputs.length;i++){
-        var output = response.data.items[i];
-        var url = "https://reporter.nih.gov/project-details/"+output.nihApplId;
-        console.log(url);
-        if(output.otherPis != undefined){
+// axios.get('http://api.federalreporter.nih.gov/v1/Projects/search?query=piName%3AFRANCO%20PESTILLI&offset=1&limit=100').then(response =>{
+//   console.log("Hiii its nih");  
+//   console.log(response);
+//     // console.log(response.data.response.award);
+//     var outputs = response.data.items;
+//     for(i=0; i <= outputs.length;i++){
+//         var output = response.data.items[i];
+//         var url = "https://reporter.nih.gov/project-details/"+output.nihApplId;
+//         console.log(url);
+//         if(output.otherPis != undefined){
             
-            generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,output.otherPis,output.title,url);
-    }else{
-        generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,"",output.title,url);
+//             generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,output.otherPis,output.title,url);
+//     }else{
+//         generateAwards(output.projectStartDate,output.projectEndDate,output.contactPi,"",output.title,url);
 
-    }
-    }
-});
-tinysort('ul#_awards>li');
+//     }
+//     }
+// });
+// tinysort('ul#_awards>li');
+// function sortList(ul){
+//     var new_ul = ul.cloneNode(false);
+
+//     // Add all lis to an array
+//     var lis = [];
+//     for(var i = ul.childNodes.length; i--;){
+//         if(ul.childNodes[i].nodeName === 'LI')
+//             lis.push(ul.childNodes[i]);
+//     }
+//     console.log(lis)
+
+//     // Sort the lis in descending order
+//     lis.sort(function(a, b){
+//        return parseInt(b.childNodes[0].data , 10) - 
+//               parseInt(a.childNodes[0].data , 10);
+//     });
+
+//     // Add them into the ul in order
+//     for(var i = 0; i < lis.length; i++)
+//         new_ul.appendChild(lis[i]);
+//     ul.parentNode.replaceChild(new_ul, ul);
+// }
+
+// sortList(document.getElementsByClassName('timeline-item')[0]);
 
 $(document).ready(function(){
 
@@ -208,8 +233,10 @@ var container = $(".timeline");
        // Convert the string in 'data-event-date' attribute to a more
        // standardized date format
        console.log("here2");
-       var BCDate = $(this).attr("data-event-date");
-       
+      //  var BCDate = $(this).attr("data-event-date");
+      var BCDate = $(this).find('.date_check').text();
+      var obj = $(this).find('.h5').text();
+       console.log('BC DATE '+BCDate +'for'+obj);
        standardDate = new Date(BCDate).getTime();
        console.log("final standard date:"+standardDate);
        $(this).attr("data-event-date", standardDate);

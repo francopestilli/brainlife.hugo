@@ -15,7 +15,7 @@ def gen_md (filepath):
             with open('brainlife_lab/brainlife.hugo/content/satelliteprojects/'+i['id']+'.md','w+') as yml:
                 yml.write('---\n')
                 yaml.dump(i, yml, allow_unicode=True)
-                yml.write('url : '+url)
+                yml.write('external_url : \''+url+'\'')
                 yml.write('\n---')
 
 def myfn():

@@ -1,0 +1,90 @@
+@keyframes cloud_floating {
+    0% { left: -105%; }
+    100% { left: 105%; }
+    }
+    svg.cloud {
+    position: absolute;
+    z-index: 10;
+    }
+    svg.cloud-far {
+    top: 20px;
+    opacity: 0.2;
+    animation: cloud_floating 200s linear infinite;
+    animation-delay: -100s;
+    }
+    svg.cloud-mid {
+    top: -60px;
+    opacity: 0.4;
+    animation: cloud_floating 150s linear infinite;
+    animation-delay: -80s;
+    }
+    svg.cloud-small {
+    top: 30px;
+    opacity: 0.5;
+    animation: cloud_floating 80s linear infinite;
+    animation-delay: -60s;
+    }
+    
+    img.kiki {
+    position: absolute;
+    top: 200px;
+    z-index: 5;
+    opacity: 0.5;
+    animation: cloud_floating 45s linear infinite;
+    animation-delay: 0s;
+    width: 100px;
+    }
+    
+    .page-header {
+    height: 250px;
+    z-index: 0;
+    }
+    .page-header .page-header-content {
+    transition: padding 0.25s linear;
+    padding: 2rem 4rem;
+    }
+    .page-header h1 {
+    margin: 0px;
+    font-size: 52px;
+    position: relative;
+    }
+    .page-header .project-name {
+    transition: font-size 0.25s ease;
+    }
+    .header-buttons {
+    z-index: 201; 
+    position: absolute; 
+    top: 9px; 
+    right: 200px;
+    transition: opacity 1.5s;
+    opacity: 0;
+    }
+    .header-buttons .btn:hover {
+    background-color: inherit;
+    }
+    .page-header.overscrolled .header-buttons {
+    opacity: 1;
+    }
+    
+    @media screen and (min-width: 42em) {
+        .page-header.affix {
+            height: 50px;
+            z-index: 20;
+        }
+        .page-header.affix .project-name {
+            font-size: 20pt;
+        }
+        .page-header.affix .page-header-content {
+            padding: 3px 20px;
+        }
+    }
+    @media screen and (max-width: 42em) {
+        .page-header.overscrolled {
+            display:none;
+        }
+        .header-buttons,
+        .plab-logo {
+            display: none;
+        }
+    }
+    
