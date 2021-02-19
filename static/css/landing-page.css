@@ -295,13 +295,128 @@ div.online {
 /* LANDING ABOUT PAGE CSSS  */
 
 .landing_about{
-    background-color: white;
-    margin-top: 20px; 
-    position: relative; 
-    z-index: 10; 
-    padding-top: 0px;
+    margin: 0 -9999rem;
+padding: 0 9999rem;
+padding-bottom: 0px;
+background-color: white;
 }
 
-.center-no-overflow{
-    margin: 0 -9999rem; padding: 0 9999rem; padding-bottom: 0px; background-color: white;
+h2{
+    font-family: Raleway;
+}
+.headlink h3 {
+    font-size: 16px;
+}
+
+.col-6 b{
+    font-size: 19px !important;
+}
+.col-6 p {
+    font-size: 16px !important;
+    line-height:24px !important;
+}
+
+.col-md-4 p{
+    font-size:14px;
+}
+
+.sc-heading {
+    margin-top:0 !important;
+}
+
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+margin-top: 2rem ;
+margin-bottom: 1rem ;
+font-weight: normal;
+color: #159957;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+.col-sm-4, .col-md-4{
+margin-top: 50px;
+
+}
+.col-6{
+margin : 10px;
+}
+p b {
+font-size: 14px;
+}
+}
+
+/* landing everyone  */
+
+.landing-everyone-heading{
+    margin: 4rem 0;
+    font-weight: bold !important;
+    font-family: 'Open Sans';
+    font-size:32px;
+}
+.heading-quote{
+    font-size:16px !important;
+    line-height:26px
+}
+
+.left-align{
+    text-align: center;
+    font-size: 14px;
+}
+td > p b {
+    font-size:14px !important;
+    line-height:26px;
+}
+
+#map {
+    height: 400px; 
+    margin-bottom: 20px;
+}
+
+/* Landing Mission  */
+.mission-div{
+    margin-top: 6rem !important; 
+    margin-bottom: 6rem !important;
+}
+.main-content .colorback .mission-header {
+    position: relative;
+    z-index: 5;
+    opacity: 1.0;
+    margin-top: 20px;
+    font-weight: 700;
+}
+.mission-box {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.8);
+    padding: 15px;
+    background-color: #159957;
+}
+.mission-content {
+    position: relative;
+    top: -45px;
+    border-top: 2px solid rgba(255,255,255,0.5);
+    padding-top: 100px;
+}
+.mission-content p{
+    font-size:16px !important;
+}
+.mission-quote{
+    background-color: rgba(0,0,0,0.2); 
+    padding: 20px; 
+    font-size:16px !important;
+}
+
+/* Landing Sponsor  */
+.sponsor-p{
+    font-size: 16px !important;
+    text-align: center;
+    color: #444444;
+}
+.sponsor-div {
+    margin-top: 4rem; 
+    margin-bottom: 6rem; 
+    opacity: 0.9;
 }
