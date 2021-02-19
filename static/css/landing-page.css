@@ -416,7 +416,7 @@ td > p b {
     color: #444444;
 }
 .sponsor-div {
-    margin-top: 4rem; 
-    margin-bottom: 6rem; 
+    margin-top: 4rem !important; 
+    margin-bottom: 6rem !important; 
     opacity: 0.9;
 }
