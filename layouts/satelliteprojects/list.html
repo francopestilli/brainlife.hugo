@@ -121,10 +121,33 @@ li.timeline-item::before {
 
     <div>
       <br>
+      <center>
+        <h1>Collaborators</h1>
+        <p>Many thanks to all brainlife.io collaborators!</p>
+      </center>
       <br>
-      <br>
-     
+
+    {{ with .Site.GetPage "/team/" }}
+
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="row"> 
+          {{range .Pages}}
+          {{if in .Params.tags "collaborators"}}
+            <div class="col-md-4 col-sm-4 col-xs-4 contact">
+              <img src='{{.Params.image}}'><br>
+            <a>{{.Title}}</a><br>
+            <span class="title"> {{.Params.position}}</span><br>
+            <span class="location">{{.Params.location}}</span><br>
+            </div>
+            {{end}}
+          {{end}}
+        </div>
     </div>
+    </div>
+    {{end}}
+  </div>
+     
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.js"></script>
