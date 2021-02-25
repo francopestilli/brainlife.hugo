@@ -17,11 +17,16 @@ def gen_md (filepath):
                 yaml.dump(i, yml, allow_unicode=True)
                 yml.write('external_url : \''+url+'\'')
                 yml.write('\n---')
+            with open('brainlife_lab/pestilli-lab--ut-austin/plab/content/research/'+i['id']+'.md','w+') as yml:
+                yml.write('---\n')
+                yaml.dump(i, yml, allow_unicode=True)
+                yml.write('external_url : \''+url+'\'')
+                yml.write('\n---')
 
 def myfn():
     # Insert your requests code here
     print('Hello')
-    filepath = '/home/ubuntu/brainlife_lab/pestilli-lab--ut-austin/assets/nsf.json'
+    filepath = '/home/ubuntu/brainlife_lab/pestilli-lab--ut-austin/plab/static/assets/nsf.json'
     nsf_response = requests.get('https://api.nsf.gov/services/v1/awards.json?keyword="franco+pestilli"&printFields=startDate,expDate,id,title,awardee,agency,awardeeName,piFirstName,piLastName,coPDPI')
     # with open('/home/ubuntu/brainlife_lab/brainlife.hugo/themes/brainlife.hugo.theme/static/assets/outputfile.json', 'w') as outf:
     #     json.dump(response.json,outf)        
