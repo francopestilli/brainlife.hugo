@@ -108,9 +108,11 @@ li.timeline-item::before {
               <div class="timeline-arrow"></div>
               <p><span class="blue-text date_check">{{.Params.startDate}} </span></p>
               <h2 class="h5">{{.Title}}</h2><p>{{.Params.piFirstName}} {{.Params.piLastName}} {{if .Params.coPDPI}} , {{delimit .Params.coPDPI ", "}} {{ end }}</p>
-              <p class="journal bold"><br>
-              <span><a href='{{.Title}}'><span class="badge badge-pill badge-info"></a></span></p> 
+              <p class="journal bold">FUNDING : {{.Params.agency}}</p> 
+
+              {{if .Params.external_url}}
               <a href="{{.Params.external_url}}" class="btn btn-gray">Learn More</a></li>
+              {{end}}
               {{end}}
           </ul>
 
