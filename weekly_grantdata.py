@@ -4,6 +4,8 @@ import json
 import yaml
 import pathlib
 import projectgen
+import pprint
+
 
 
 def gen_md (filepath):
@@ -17,6 +19,7 @@ def gen_md (filepath):
                 yaml.dump(i, yml, allow_unicode=True)
                 yml.write('external_url : \''+url+'\'')
                 yml.write('\n---')
+
             with open('brainlife_lab/pestilli-lab--ut-austin/plab/content/research/'+i['id']+'.md','w+') as yml:
                 yml.write('---\n')
                 yaml.dump(i, yml, allow_unicode=True)
@@ -32,7 +35,14 @@ def myfn():
     #     json.dump(response.json,outf)        
     # print('written json response')
     pathlib.Path(filepath).write_bytes(nsf_response.content)
+    
+
+    xml_resp = requests.get('https://pubmed.ncbi.nlm.nih.gov/rss/search/1-E-T-Pur1FBkVKbU8LjWt1-9Q259xhHJ9EYoUamU1xlaplMjx/?limit=100&utm_campaign=pubmed-2&fc=20210112114804')
+    filepath_rss = '/home/ubuntu/brainlife_lab/pestilli-lab--ut-austin/plab/static/assets/pub.xml'
+    pathlib.Path(filepath_rss).write_bytes(xml_resp.content)
     gen_md(filepath)
+
+
 sch = scheduler()
 sch.add_job(myfn, 'interval', seconds=10)
 sch.start()
