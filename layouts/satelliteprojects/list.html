@@ -148,7 +148,7 @@ li.timeline-item::before {
       <div class="container">
         <div class="row"> 
           {{range .Pages}}
-          {{if in .Params.tags "collaborators"}}
+          {{if in .Params.tags "contributor"}}
             <div class="col-md-4 col-sm-4 col-xs-4 contact">
               <img src='{{.Params.image}}'><br>
             <a>{{.Title}}</a><br>
