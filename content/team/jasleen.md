@@ -2,9 +2,9 @@
 title: "Jasleen Jolly"
 date: 2021-01-20T00:40:57Z
 position : 'Researcher'
-description : "After working with the brainlife.io team, Jasleen became a clinician scientist specialising in eye disease at the University of Oxford."
-image : '/images/avatar/franco.jpg'
+description : "Jasleen contributed to the concepts of Apps on brainlife.io relating to the visual system. After working with the brainlife.io team, Jasleen became a senior clinical research fellow specializing in eye disease at the University of Oxford."
+image : '/images/avatar/Jasleen.jpg'
 tags : ['alumni']
-draft: true
+draft: false
 
 ---
