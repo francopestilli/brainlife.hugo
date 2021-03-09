@@ -30,7 +30,11 @@ and (max-device-width : 480px) {
   }
 }
 
-
+.contact img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+}
 
 
 @media only screen and (max-width: 500px) {
