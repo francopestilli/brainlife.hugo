@@ -84,7 +84,26 @@ ul {list-style:none;
 
 ul > li:nth-child(odd) div.event_date {left: -8em;}
 ul > li:nth-child(even) div.event_date {right:-6em;}
+@media only screen and (max-width: 500px) {
 
+  ul > li:nth-child(odd) div.event_date {left: 0;}
+ul > li:nth-child(even) div.event_date {right: 0;}
+.timeline-item::after, .timeline-item.right::after {
+   left: -26px;
+;
+}
+.event_date{
+  position: relative;
+  margin-top: -1em !important;
+}
+.timeline::after {
+    left: 0;
+}
+.h5,p{
+  margin-top: 0 !important
+}
+
+}
 </style>
 
 <section class="main-content">
@@ -104,7 +123,7 @@ ul > li:nth-child(even) div.event_date {right:-6em;}
           <ul class="timeline" id = "_awards">
             {{ range .Pages  }}
             <li class="timeline-item bg-white rounded ml-3 p-4" dt-date = {{.Params.startDate}} data-event-date= "{{.Params.startDate}} ">
-              <div class="event_date">
+              <div class="event_date blue-text">
                 {{.Params.startDate}}
               </div>
               <h2 class="h5">{{.Title}}</h2><p>{{.Params.piFirstName}} {{.Params.piLastName}} {{if .Params.coPDPI}} , {{delimit .Params.coPDPI ", "}} {{ end }}</p>
