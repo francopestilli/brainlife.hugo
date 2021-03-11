@@ -26,31 +26,15 @@
 .blue-text{
     color: #2693ff !important;
 }
-/* Timeline holder */
-ul.timeline {
-  list-style-type: none;
-  position: relative;
-  padding-left: 1.5rem;
-}
+
 .p-4 {
     padding: 1.5rem!important;
 }
-/* Timeline vertical line */
-ul.timeline:before {
-  content: ' ';
-  background: #2693ff;
-  display: inline-block;
-  position: absolute;
-  left: 16px;
-  width: 4px;
-  height: 100%;
-  z-index: 400;
-  border-radius: 1rem;
-}
 
-li.timeline-item {
+
+/* li.timeline-item {
   margin: 20px 0;
-}
+} */
 .ml-3,
 .mx-3 {
   margin-left: 1rem !important;
@@ -58,39 +42,67 @@ li.timeline-item {
 .shadow {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-/* Timeline item arrow */
-.timeline-arrow {
-  border-top: 0.5rem solid transparent;
-  border-right: 0.5rem solid #2693ff;
-  border-bottom: 0.5rem solid transparent;
-  display: block;
-  position: absolute;
-  left: 0rem;
- 
-  transform: rotate(
-180deg
-);
-
-}
 #_awards p {
   margin-top: -2px;
 }
 .bg-white {
   background-color: #fff !important;
 }
-/* Timeline item circle marker */
-li.timeline-item::before {
-  content: ' ';
-  background: #ddd;
-  display: inline-block;
+
+li::after {
+  content: '';
   position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 7px;
+  background-color: white;
+  border: 3px solid #FF9F55;
+  top: 15px;
   border-radius: 50%;
-  border: 3px solid #fff;
-  left: 11px;
-  width: 14px;
-  height: 14px;
-  z-index: 400;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+ul {list-style:none;
+}
+.remove-space{
+  display: none; 
+}
+
+.li::before{
+  content: attr(dt-date);
+  color: black;
+}
+
+.event_date{
+  position: absolute;
+}
+
+.rect-bg{
+ background-color: #28a745!important ; 
+ padding : 3px 5px;
+ color:white;
+}
+
+ul > li:nth-child(odd) div.event_date {left: -8em;}
+ul > li:nth-child(even) div.event_date {right:-6em;}
+@media only screen and (max-width: 500px) {
+
+  ul > li:nth-child(odd) div.event_date {left: 0;}
+ul > li:nth-child(even) div.event_date {right: 0;}
+.timeline-item::after, .timeline-item.right::after {
+   left: -26px;
+;
+}
+.event_date{
+  position: relative;
+  margin-top: -1em !important;
+}
+.timeline::after {
+    left: 0;
+}
+.h5,p{
+  margin-top: 0 !important
+}
+
 }
 </style>
 
@@ -110,16 +122,16 @@ li.timeline-item::before {
         <div class="row">
           <ul class="timeline" id = "_awards">
             {{ range .Pages  }}
-            <li class="timeline-item bg-white rounded ml-3 p-4 shadow" data-event-date= "{{.Params.startDate}} ">
-              <div class="timeline-arrow"></div>
-              <div style="display:block;position:absolute;">
-              <p><span class="blue-text date_check">{{.Params.startDate}} </span></p>
+            <li class="timeline-item bg-white rounded ml-3 p-4" dt-date = {{.Params.startDate}} data-event-date= "{{.Params.startDate}} ">
+              <div class="event_date blue-text">
+                {{.Params.startDate}}
               </div>
               <h2 class="h5">{{.Title}}</h2><p>{{.Params.piFirstName}} {{.Params.piLastName}} {{if .Params.coPDPI}} , {{delimit .Params.coPDPI ", "}} {{ end }}</p>
-              <p class="journal bold">FUNDING : {{.Params.agency}}</p> 
-
+              <p class="journal bold">FUNDING : <span class="rect-bg">{{.Params.agency}}</span></p>
+            
               {{if .Params.external_url}}
-              <a href="{{.Params.external_url}}" class="btn btn-gray">Learn More</a></li>
+              <a href="{{.Params.external_url}}" class="btn btn-gray">Learn More</a>
+            </li>
               {{end}}
               {{end}}
           </ul>
@@ -201,18 +213,32 @@ var container = $(".timeline");
     items.each(function() {
        // Convert the string in 'data-event-date' attribute to a more
        // standardized date format
-      var BCDate = $(this).find('.date_check').text();
+       console.log("here2");
+      //  var BCDate = $(this).attr("data-event-date");
+      var BCDate = $(this).attr("dt-date");
       var obj = $(this).find('.h5').text();
        standardDate = new Date(BCDate).getTime();
        $(this).attr("data-event-date", standardDate);
     });
 
+    var ab = 0;
     items.sort(function(a,b){
         a = parseFloat($(a).attr("data-event-date"));
         b = parseFloat($(b).attr("data-event-date"));
         return a>b ? -1 : a<b ? 1 : 0;
     }).each(function(){
         container.append(this);
+        if(ab % 2 ==0){
+          ab+=1;
+          $(this).addClass('right');
+          console.log(ab);
+          container.append(this);
+        }else{
+          ab+=1;
+          $(this).addClass('left');
+          console.log(ab);
+          container.append(this);
+        }
     });
     
 });
