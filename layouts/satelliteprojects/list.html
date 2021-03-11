@@ -141,39 +141,7 @@ ul > li:nth-child(even) div.event_date {right: 0;}
      
     </div>
 
-    <div>
-      <br>
-
-      <hr>
-      <br>
-      <br>
-
-      <center>
-        <h1>Collaborators</h1>
-        <p>Many thanks to all brainlife.io collaborators!</p>
-      </center>
-      <br>
-
-    {{ with .Site.GetPage "/team/" }}
-
-    <div class="bootstrap-wrapper">
-      <div class="container">
-        <div class="row"> 
-          {{range .Pages}}
-          {{if in .Params.tags "contributor"}}
-            <div class="col-md-4 col-sm-4 col-xs-4 contact">
-              <img src='{{.Params.image}}'><br>
-            <a>{{.Title}}</a><br>
-            <span class="title"> {{.Params.position}}</span><br>
-            <span class="location">{{.Params.location}}</span><br>
-            </div>
-            {{end}}
-          {{end}}
-        </div>
-    </div>
-    </div>
-    {{end}}
-  </div>
+   
      
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -205,66 +173,49 @@ ul > li:nth-child(even) div.event_date {right: 0;}
     
     }
     const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
-$(document).ready(function(){
 
-var container = $(".timeline");
-    var items = $(".timeline-item");
+
+    var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+}
+
+ready(() => { 
+  /* Do things after DOM has fully loaded */ 
+
+
+    var container = document.querySelector(".timeline");;
+    var items = document.querySelectorAll('.timeline-item');
+    console.log(items);
     
-    items.each(function() {
-       // Convert the string in 'data-event-date' attribute to a more
-       // standardized date format
-       console.log("here2");
-      //  var BCDate = $(this).attr("data-event-date");
-      var BCDate = $(this).attr("dt-date");
-      var obj = $(this).find('.h5').text();
-       standardDate = new Date(BCDate).getTime();
-       $(this).attr("data-event-date", standardDate);
-    });
+    items.forEach(
+      item=> {
+        let BCDATE = item.getAttribute("dt-date");
+        var standardDate = new Date(BCDATE).getTime();
+        item.setAttribute("data-event-date", standardDate);
+        console.log("here2");
+       }
+    )
 
     var ab = 0;
-    items.sort(function(a,b){
-        a = parseFloat($(a).attr("data-event-date"));
-        b = parseFloat($(b).attr("data-event-date"));
+    Array.from(items).sort( function(a,b){
+        a = parseFloat(a.getAttribute("data-event-date"));
+        b = parseFloat(b.getAttribute("data-event-date"));
         return a>b ? -1 : a<b ? 1 : 0;
-    }).each(function(){
-        container.append(this);
-        if(ab % 2 ==0){
-          ab+=1;
-          $(this).addClass('right');
-          console.log(ab);
-          container.append(this);
-        }else{
-          ab+=1;
-          $(this).addClass('left');
-          console.log(ab);
-          container.append(this);
-        }
+    }).forEach(list =>{
+      if(ab %2 == 0){
+        ab+=1;
+        list.classList.add("right");
+        container.append(list);
+      }else{
+        ab+=1;
+        list.classList.add("left");
+        container.append(list);
+      }
     });
     
 });
 
-(function($){
-    var container = $(".timeline");
-    var items = $(".timeline-item");
-    
-    items.each(function() {
-       // Convert the string in 'data-event-date' attribute to a more
-       // standardized date format
-       var BCDate = $(this).attr("data-event-date").split("/");
-       var standardDate = BCDate[1]+" "+BCDate[0]+" "+BCDate[2];
-       standardDate = new Date(standardDate).getTime();
-       $(this).attr("data-event-date", standardDate);
-    });
-
-    items.sort(function(a,b){
-        a = parseFloat($(a).attr("data-event-date"));
-        b = parseFloat($(b).attr("data-event-date"));
-        return a>b ? -1 : a<b ? 1 : 0;
-    }).each(function(){
-        container.prepend(this);
-    });
-
-})(jQuery);
 </script>
 
     {{end}}
