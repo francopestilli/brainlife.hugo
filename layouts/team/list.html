@@ -86,6 +86,14 @@ li.timeline-item::before {
   z-index: 400;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+.alumni-img{
+  width: 200px;
+  height: 200px;
+}
+
+
+
 </style>
 <section class="app-header">
   <div class="main-content">
@@ -278,8 +286,7 @@ li.timeline-item::before {
         {{ if in .Params.tags "alumni" }}
         <tr>
           <td width="40%" class="contact">
-            <img src="{{.Params.image}}" style="width: 100% !important;
-            height: auto !important;"><br>
+            <img class="alumni-img" src="{{.Params.image}}"><br>
             <a>{{.Title}}</a><br>
             <span class="title">{{.Params.position}}</span>
           </td>

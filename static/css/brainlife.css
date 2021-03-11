@@ -623,11 +623,18 @@ div.online {
         width: 448px;
         height: 252px;
     }
-
+.alumni-img{
+  width: 200px;
+  height: 200px;    
+}
     
     @media only screen and (max-width: 500px) {
         .floatleft {
             width: 100%;
+        }
+        .alumni-img{
+          width: auto;
+          height: auto;    
         }
     }
     
