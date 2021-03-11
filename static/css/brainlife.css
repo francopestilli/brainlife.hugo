@@ -40,8 +40,8 @@ and (max-device-width : 480px) {
 @media only screen and (max-width: 500px) {
 
 .contact img {
-  height: auto !important;
-  width : 70% !important;
+  height: 150px !important;
+  width : 150px !important;
 }
 }
 html body {
@@ -452,7 +452,7 @@ z-index: 1;
     filter: grayscale(100%);
     box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     border: 5px solid white;
-    width: 70%;
+    /* width: 70%; */
 }
 img.team {
     border-radius: 5px;
