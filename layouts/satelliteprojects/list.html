@@ -186,14 +186,12 @@ ready(() => {
 
     var container = document.querySelector(".timeline");;
     var items = document.querySelectorAll('.timeline-item');
-    console.log(items);
     
     items.forEach(
       item=> {
         let BCDATE = item.getAttribute("dt-date");
         var standardDate = new Date(BCDATE).getTime();
         item.setAttribute("data-event-date", standardDate);
-        console.log("here2");
        }
     )
 
