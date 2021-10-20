@@ -2,12 +2,15 @@ baseurl = "https://brainlife.io/"
 languageCode = "en-us"
 title = "brainlife"
 
-googleAnalytics = "UA-118407195-1"
+#googleAnalytics = "UA-118407195-1"
+googleAnalytics = "G-J5H19RMNCT"
 
 #
 # Personalization params
 #
 [params]
+    #googleGtag = "G-J5H19RMNCT"
+
     # project specific params
     description = ""
     author_url = ""

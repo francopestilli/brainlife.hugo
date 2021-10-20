@@ -28,6 +28,18 @@
     {{ template "_internal/google_analytics.html" . }}
     {{ template "_internal/google_analytics_async.html" . }}
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.googleGtag }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ $.Site.Params.googleGtag }}');
+    </script>
+    -->
+
     <script>
       /*to prevent Firefox FOUC, this must be here*/
       let FF_FOUC_FIX;
