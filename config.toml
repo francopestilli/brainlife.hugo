@@ -2,6 +2,8 @@ baseurl = "https://brainlife.io/"
 languageCode = "en-us"
 title = "brainlife"
 
+googleAnalytics = "UA-118407195-1"
+
 #
 # Personalization params
 #
@@ -101,7 +103,7 @@ title = "brainlife"
       disable = true
 
     [privacy.googleAnalytics]
-      disable = true
+      disable = false
       anonymizeIP = true
       respectDoNotTrack = true
       useSessionStorage = true
