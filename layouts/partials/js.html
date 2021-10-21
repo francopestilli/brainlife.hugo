@@ -38,6 +38,12 @@ function initMap() {
         if (y >= 150) bannerClasses.push('affix');
         if (mainContent.getBoundingClientRect().top <= 0) bannerClasses.push('overscrolled');
         banner.className = bannerClasses.join(' ');
+        const footer = document.getElementById('footer-landing');
+        if(footer.getBoundingClientRect().top < window.innerHeight && footer.getBoundingClientRect().bottom > 0) {
+            // console.log('Element is visible on the screeen');
+            ga('send', 'event', 'Scroll to Bottom', 'Landing Page', 'footer');
+        };
+
     }
     window.addEventListener("scroll", onscroll); 
 </script>
