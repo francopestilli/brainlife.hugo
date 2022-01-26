@@ -2,8 +2,8 @@ baseurl = "https://brainlife.io/"
 languageCode = "en-us"
 title = "brainlife"
 
-#googleAnalytics = "UA-118407195-1"
-googleAnalytics = "G-J5H19RMNCT"
+googleAnalytics = "UA-118407195-1"
+# googleAnalytics = "G-J5H19RMNCT"
 
 #
 # Personalization params
