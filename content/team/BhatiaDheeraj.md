@@ -2,8 +2,8 @@
 title: "Dheeraj Bhatia"
 date: 2021-01-20T00:40:57Z
 position : 'Undergraduate Student'
-description : "More about Dheeraj"
-image : 'https://avatars.githubusercontent.com/u/16397223?s=460&u=bbab3f27e0224797805905aadf076839cf4d318f&v=4'
+description : "Dheeraj is an Undergraduate student at the University at Buffalo. He has been working with brainlife.io since 2020 working with the Microsoft Academic Graph, Azure Cloud and to help improving the user interface. Along with a passion for programming Dheeraj has experience with social media marketing and traffic acquisition. He is interested in open source and neuroscience."
+image : '/images/avatar/dheerajbhatia.jpeg'
 tags : ['active']
-draft: true
+draft: false
 ---
