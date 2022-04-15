@@ -36,8 +36,8 @@
     }
     
     .page-header {
-    height: 250px;
-    z-index: 0;
+        height: 600px;
+        z-index: 0;
     }
     .page-header .page-header-content {
     transition: padding 0.25s linear;
