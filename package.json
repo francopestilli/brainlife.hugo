@@ -1,0 +1,20 @@
+{
+  "name": "brainlife.io",
+  "version": "1.0.0",
+  "description": "brainlife landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "hugo -D server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainlife/brainlife.hugo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brainlife/brainlife.hugo/issues"
+  },
+  "homepage": "https://github.com/brainlife/brainlife.hugo#readme"
+}
